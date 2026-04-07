@@ -1,0 +1,349 @@
+/* ── Fonts ───────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+/* ── Root palette ────────────────────────────────────────────────────────── */
+:root {
+    --cream:      #f5f0e8;
+    --parchment:  #ede5d0;
+    --olive:      #4a5240;
+    --olive-dark: #2e3328;
+    --olive-mid:  #6b7560;
+    --khaki:      #8b7355;
+    --rust:       #8b3a2a;
+    --rust-light: #b84a38;
+    --safe-green: #2d5a27;
+    --safe-light: #3d7a35;
+    --gold:       #c9a84c;
+    --ink:        #1a1a14;
+    --fade:       #6b6455;
+}
+
+/* ── Global reset & base ─────────────────────────────────────────────────── */
+html, body, [data-testid="stAppViewContainer"] {
+    background-color: var(--cream) !important;
+    color: var(--ink) !important;
+    font-family: 'Source Serif 4', Georgia, serif !important;
+}
+
+[data-testid="stApp"] {
+    background-color: var(--cream) !important;
+}
+
+/* Hide default Streamlit elements */
+#MainMenu, footer, header {
+    visibility: hidden !important;
+}
+
+[data-testid="stDecoration"] { display: none !important; }
+
+/* ── Block container ─────────────────────────────────────────────────────── */
+[data-testid="stAppViewBlockContainer"] {
+    max-width: 780px !important;
+    padding: 2rem 2rem 4rem !important;
+    background-color: var(--cream) !important;
+}
+
+/* Subtle paper texture overlay */
+[data-testid="stAppViewContainer"]::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* ── Header block ────────────────────────────────────────────────────────── */
+.header-block {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    position: relative;
+}
+
+.header-stamp {
+    display: inline-block;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--rust);
+    border: 2px solid var(--rust);
+    padding: 3px 12px;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    transform: rotate(-1.5deg);
+}
+
+.title {
+    font-family: 'Special Elite', monospace !important;
+    font-size: 4rem !important;
+    font-weight: 400 !important;
+    color: var(--olive-dark) !important;
+    letter-spacing: 0.12em !important;
+    margin: 0 0 0.3rem !important;
+    line-height: 1 !important;
+    text-shadow: 2px 2px 0px var(--parchment), 3px 3px 0px rgba(0,0,0,0.08) !important;
+}
+
+.subtitle {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--olive-mid);
+    margin: 0 0 1rem !important;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--fade);
+    margin: 0 !important;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────────── */
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--khaki), var(--olive-mid), var(--khaki), transparent);
+    margin: 2rem 0;
+    opacity: 0.5;
+}
+
+/* ── Section labels ──────────────────────────────────────────────────────── */
+.section-label {
+    font-family: 'Special Elite', monospace !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.25em !important;
+    color: var(--olive-mid) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.4rem !important;
+}
+
+/* ── Selectbox & slider ──────────────────────────────────────────────────── */
+[data-testid="stSelectbox"] > div > div {
+    background-color: var(--parchment) !important;
+    border: 1px solid var(--khaki) !important;
+    border-radius: 2px !important;
+    color: var(--ink) !important;
+    font-family: 'Source Serif 4', serif !important;
+}
+
+[data-testid="stSelectbox"] label {
+    font-family: 'Special Elite', monospace !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    color: var(--olive-mid) !important;
+    text-transform: uppercase !important;
+}
+
+/* Slider */
+[data-testid="stSlider"] label {
+    font-family: 'Special Elite', monospace !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    color: var(--olive-mid) !important;
+    text-transform: uppercase !important;
+}
+
+[data-testid="stSlider"] [data-testid="stTickBarMin"],
+[data-testid="stSlider"] [data-testid="stTickBarMax"] {
+    font-family: 'Special Elite', monospace !important;
+    color: var(--fade) !important;
+}
+
+/* ── Year note ───────────────────────────────────────────────────────────── */
+.year-note {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--fade);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--khaki);
+    background-color: rgba(139, 115, 85, 0.08);
+}
+
+/* ── Button ──────────────────────────────────────────────────────────────── */
+[data-testid="stButton"] > button {
+    font-family: 'Special Elite', monospace !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.25em !important;
+    background-color: var(--olive-dark) !important;
+    color: var(--cream) !important;
+    border: none !important;
+    border-radius: 2px !important;
+    padding: 0.85rem 2rem !important;
+    transition: background-color 0.2s, transform 0.1s !important;
+    text-transform: uppercase !important;
+}
+
+[data-testid="stButton"] > button:hover {
+    background-color: var(--olive) !important;
+    transform: translateY(-1px) !important;
+}
+
+[data-testid="stButton"] > button:active {
+    transform: translateY(0px) !important;
+}
+
+/* ── Result card ─────────────────────────────────────────────────────────── */
+.result-card {
+    border: 2px solid;
+    border-radius: 3px;
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+    background-color: var(--parchment);
+}
+
+.result-card.drafted {
+    border-color: var(--rust);
+    background-color: #faf0ee;
+}
+
+.result-card.safe {
+    border-color: var(--safe-green);
+    background-color: #eef4ed;
+}
+
+.result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+
+.result-date {
+    font-family: 'Special Elite', monospace;
+    font-size: 1.6rem;
+    color: var(--olive-dark);
+    letter-spacing: 0.04em;
+}
+
+.result-year {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--fade);
+    margin-top: 2px;
+}
+
+.result-number-block {
+    text-align: right;
+}
+
+.result-number-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--fade);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.result-number {
+    font-family: 'Special Elite', monospace;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--olive-dark);
+}
+
+/* Status badge */
+.result-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.75rem;
+}
+
+.result-status.drafted {
+    background-color: var(--rust);
+    color: #fff;
+}
+
+.result-status.safe {
+    background-color: var(--safe-green);
+    color: #fff;
+}
+
+.status-icon {
+    font-size: 1rem;
+}
+
+.threshold-note {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--fade);
+}
+
+/* ── Story block ─────────────────────────────────────────────────────────── */
+.story-block {
+    background-color: var(--parchment);
+    border-left: 4px solid var(--khaki);
+    padding: 1.75rem 2rem;
+    border-radius: 0 3px 3px 0;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink);
+}
+
+.story-block strong {
+    color: var(--olive-dark);
+    font-weight: 600;
+}
+
+.story-block em {
+    font-style: italic;
+    color: var(--fade);
+}
+
+/* ── Context block ───────────────────────────────────────────────────────── */
+.context-block {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(139, 115, 85, 0.35);
+    border-radius: 2px;
+    background-color: rgba(139, 115, 85, 0.06);
+}
+
+.context-title {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--olive-mid);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem !important;
+}
+
+.context-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--fade);
+    margin: 0 !important;
+}
+
+/* ── Page footer ─────────────────────────────────────────────────────────── */
+.page-footer {
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(139, 115, 85, 0.3);
+    padding-top: 1.5rem;
+}
+
+.page-footer p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--fade);
+    margin: 0.2rem 0 !important;
+}
