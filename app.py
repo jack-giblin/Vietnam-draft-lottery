@@ -71,11 +71,11 @@ lottery_data = {
         "cohort": "1951"
     },
     1971: {
-        "date": "July 1, 1971",
+        "date": "August 5, 1971",
         "cohort": "1952"
     },
     1972: {
-        "date": "August 5, 1972",
+        "date": "February 2, 1972",
         "cohort": "1953"
     }
 }
