@@ -208,7 +208,7 @@ def _drafted_story(
     paragraphs.append(
         f"The official induction notice arrived roughly {notice_weeks} weeks later. "
         f"It read: <em>\"Greeting: You are hereby ordered for induction into the Armed Forces of the United States.\"</em> "
-        f"You were to report for a pre-induction physical examination in {exam_city}. "
+        f"You were to report for a pre-induction physical examination to {exam_city}. "
         f"The exam took a full day — vision, hearing, blood pressure, a battery of tests designed to determine "
         f"if your body was fit for the demands of war. Yours was."
     )
