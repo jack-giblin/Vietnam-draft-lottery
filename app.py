@@ -50,6 +50,7 @@ with col2:
     )
 
 st.markdown('<p class="section-label" style="margin-top:1.5rem">DRAFT YEAR</p>', unsafe_allow_html=True)
+
 year = st.select_slider(
     "Select the lottery year",
     options=[1969, 1970, 1971, 1972],
@@ -57,10 +58,34 @@ year = st.select_slider(
     key="year_slider"
 )
 
+# ─────────────────────────────
+# HISTORICAL LOTTERY DATA
+# ─────────────────────────────
+lottery_data = {
+    1969: {
+        "date": "December 1, 1969",
+        "cohort": "1944–1950"
+    },
+    1970: {
+        "date": "July 1, 1970",
+        "cohort": "1951"
+    },
+    1971: {
+        "date": "July 1, 1971",
+        "cohort": "1952"
+    },
+    1972: {
+        "date": "August 5, 1972",
+        "cohort": "1953"
+    }
+}
+
+info = lottery_data.get(year, {"date": "Unknown", "cohort": "Unknown"})
+
 st.markdown(f"""
 <div class="year-note">
-Lottery held <b>December {year}</b> · 
-Affected men born in <b>{year - 25}–{year - 19}</b>
+Lottery held <b>{info['date']}</b> · 
+Affected men born in <b>{info['cohort']}</b>
 </div>
 """, unsafe_allow_html=True)
 
