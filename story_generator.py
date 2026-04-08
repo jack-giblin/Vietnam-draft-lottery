@@ -217,7 +217,7 @@ def _drafted_story(
     paragraphs.append(
         f"From there, you were assigned to {induction_city}, home of {division}. "
         f"Basic Combat Training lasted {training_weeks} weeks — a controlled demolition of the civilian you used to be. "
-        f"Reveille at 0430. Five-mile runs in the Georgia heat. Weapons familiarization, land navigation, "
+        f"Reveille at 0430. Five-mile runs in the heat. Weapons familiarization, land navigation, "
         f"first aid under simulated fire. Drill Sergeants who seemed to have been carved from the same hard rock "
         f"as the obstacle courses they built. By the end, you were different. Most men were."
     )
