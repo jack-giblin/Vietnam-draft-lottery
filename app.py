@@ -59,8 +59,8 @@ year = st.select_slider(
 
 st.markdown(f"""
 <div class="year-note">
-Lottery held <b>December {1969 if year == 1968 else year + 1}</b> · 
-Affected men born in <b>{year - 26}–{year - 18}</b>
+Lottery held <b>December {year}</b> · 
+Affected men born in <b>{year - 27}–{year - 19}</b>
 </div>
 """, unsafe_allow_html=True)
 
